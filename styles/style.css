@@ -1,0 +1,17 @@
+*, *::after , *::before{
+    box-sizing: border-box;
+}
+button{
+    background-color: #82E2FF;
+    border: none;
+    border-radius: 25px;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: whitesmoke;
+    transition: all 1s linear;
+}
+button:is(:hover , :focus){
+    background-color: #0DC6FF;
+    border: 1px solid black;
+    color: black;
+}
