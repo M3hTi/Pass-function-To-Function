@@ -168,3 +168,18 @@ sortBySoldElement.onclick = function () {
 }
 
 
+
+
+// what is closures?
+function makeCounter(){
+    let counter = 0;
+    function incrementCounter() {
+        counter++;
+        console.log(counter);
+    }
+    return incrementCounter;
+}
+
+let counter = makeCounter();
+counter();
+counter();
