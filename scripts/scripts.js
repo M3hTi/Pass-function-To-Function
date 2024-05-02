@@ -183,3 +183,31 @@ function makeCounter(){
 let counter = makeCounter();
 counter();
 counter();
+
+
+
+
+// baraye toogle krdn
+let toggleElement = document.querySelector('.js-toggle');
+let isToggle = false;
+function makeToggle() {
+    function toggle(){
+        if(!isToggle){
+            document.body.classList.add('is-toggle');
+            toggleElement.classList.remove('fa-toggle-off');
+            toggleElement.classList.add('fa-toggle-on');
+            isToggle = true;
+        }else{
+            document.body.classList.remove('is-toggle');
+            toggleElement.classList.remove('fa-toggle-on');
+            toggleElement.classList.add('fa-toggle-off');
+            isToggle = false;
+        }
+    }
+    return toggle;
+}
+toggleElement.onclick = function(){
+    let toggleKrdn = makeToggle();
+    toggleKrdn();
+};
+
