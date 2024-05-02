@@ -188,26 +188,38 @@ counter();
 
 
 // baraye toogle krdn
+// let toggleElement = document.querySelector('.js-toggle');
+// let isToggle = false;
+// function makeToggle() {
+//     function toggle(){
+//         if(!isToggle){
+//             document.body.classList.add('is-toggle');
+//             toggleElement.classList.remove('fa-toggle-off');
+//             toggleElement.classList.add('fa-toggle-on');
+//             isToggle = true;
+//         }else{
+//             document.body.classList.remove('is-toggle');
+//             toggleElement.classList.remove('fa-toggle-on');
+//             toggleElement.classList.add('fa-toggle-off');
+//             isToggle = false;
+//         }
+//     }
+//     return toggle;
+// }
+// toggleElement.onclick = function(){
+//     let toggleKrdn = makeToggle();
+//     toggleKrdn();
+// };
+
 let toggleElement = document.querySelector('.js-toggle');
-let isToggle = false;
-function makeToggle() {
-    function toggle(){
-        if(!isToggle){
-            document.body.classList.add('is-toggle');
-            toggleElement.classList.remove('fa-toggle-off');
-            toggleElement.classList.add('fa-toggle-on');
-            isToggle = true;
-        }else{
-            document.body.classList.remove('is-toggle');
-            toggleElement.classList.remove('fa-toggle-on');
-            toggleElement.classList.add('fa-toggle-off');
-            isToggle = false;
-        }
-    }
-    return toggle;
-}
-toggleElement.onclick = function(){
-    let toggleKrdn = makeToggle();
-    toggleKrdn();
-};
+let toggle = (function() {
+  let isToggle = false;
+  return function() {
+    isToggle = !isToggle;
+    document.body.classList.toggle('is-toggle', isToggle);
+    toggleElement.classList.toggle('fa-toggle-on', isToggle);
+    toggleElement.classList.toggle('fa-toggle-off', !isToggle);
+  };
+})();
+toggleElement.onclick = toggle;
 
