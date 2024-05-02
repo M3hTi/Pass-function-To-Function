@@ -223,3 +223,16 @@ let toggle = (function() {
 })();
 toggleElement.onclick = toggle;
 
+
+let buttonClickMeElement = document.querySelector('.js-click-me');
+let paragraphElement = document.querySelector('.js-message');
+buttonClickMeElement.onclick = (function () {
+    let count = 0;
+    return function () {
+        count++;
+        paragraphElement.innerHTML = `You clicked me ${count} times`;
+    }
+})();
+
+
+
