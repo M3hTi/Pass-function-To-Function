@@ -224,6 +224,15 @@ let toggle = (function() {
 toggleElement.onclick = toggle;
 
 
+
+
+
+
+
+
+
+
+
 let buttonClickMeElement = document.querySelector('.js-click-me');
 let paragraphElement = document.querySelector('.js-message');
 buttonClickMeElement.onclick = (function () {
@@ -235,4 +244,48 @@ buttonClickMeElement.onclick = (function () {
 })();
 
 
+let originalArray = [5 , 10 , 15 , 3 , 7]
+let buttonOriginalArrayElement = document.querySelector('.js-button-original-array');
+let showOrigianlArray = document.querySelector('.js-original-array');
+buttonOriginalArrayElement.onclick = function(){
+    let html = '';
+    for (const array of originalArray) {
+        let htmlElement = ` ${array}`
+        html += htmlElement;
+    }
+    showOrigianlArray.innerHTML = `The Original array is : [${html}]`;
+}
+    
+let powerTwoButton = document.querySelector('.js-button-powerTwo-array');
+let showPowerTwoArrray = document.querySelector('.js-powerTwo-array');
+let powerTwoArray;
+powerTwoButton.onclick = function () {
+    powerTwoArray = originalArray.map((array) => {
+        return array = array ** 2;
+    });
+    let html = '';
+    for (const array of powerTwoArray) {
+        let htmlElement = ` ${array}`
+        html += htmlElement;
+    }
+    showPowerTwoArrray.innerHTML = `The powerTwo array is : [${html}]`;
+}
 
+
+
+let sumElement = document.querySelector('.js-button-sum');
+let sum = (function(){
+    let sum = 0;
+    let showSum = document.querySelector('.js-show-sum');
+    return function () {
+        if (powerTwoArray) { // add this check
+            for (const array of powerTwoArray) {
+                sum += array;
+            }
+            showSum.innerHTML = `The sum of the array is : ${sum}`;
+        } else {
+            showSum.innerHTML = 'Please click the "Power Two" button first.';
+        } 
+    }
+})()
+sumElement.onclick = sum;
